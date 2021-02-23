@@ -1,5 +1,6 @@
 import { arc } from 'd3-shape'
 import { useState } from 'react'
+import BackgroundCircle from './components/BackgroundCircle'
 
 const width = 960
 const height = 500
@@ -29,15 +30,9 @@ export default function App() {
 
   return (
     <>
-      <svg width={width} height={height}>
+      <svg width={width} height={height} onClick={() => setWink(!wink)}>
         <g transform={`translate(${centerX}, ${centerY})`}>
-          <circle
-            r={centerY - strokeWidth / 2}
-            fill="yellow"
-            stroke="black"
-            strokeWidth={strokeWidth}
-            onClick={() => setWink(!wink)}
-          />
+          <BackgroundCircle radius={centerY - strokeWidth / 2} strokeWidth={strokeWidth} />
           <circle
             cx={-eyeOffsetX}
             cy={-eyeOffsetY}
