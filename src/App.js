@@ -15,6 +15,8 @@ export default function App() {
         eyeOffsetX={110}
         eyeOffsetY={100}
         eyeRadius={50}
+        mouthWidth={20}
+        mouthRadius={130}
       />
     </>
   )

@@ -1,9 +1,6 @@
 import { arc } from 'd3-shape'
 
-export default function Mouth({ wink }) {
-  const mouthWidth = 20
-  const mouthRadius = 130
-
+export default function Mouth({ wink, mouthWidth, mouthRadius }) {
   const mouthArc = arc()
     .innerRadius(mouthRadius)
     .outerRadius(mouthRadius + mouthWidth)
