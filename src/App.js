@@ -1,7 +1,7 @@
-import { arc } from 'd3-shape'
 import { useState } from 'react'
 import BackgroundCircle from './components/BackgroundCircle'
 import Eyes from './components/Eyes'
+import Mouth from './components/Mouth'
 
 const width = 960
 const height = 500
@@ -11,20 +11,6 @@ const strokeWidth = 15
 const eyeOffsetX = 110
 const eyeOffsetY = 100
 const eyeRadius = 50
-const mouthWidth = 20
-const mouthRadius = 130
-
-const mouthArc = arc()
-  .innerRadius(mouthRadius)
-  .outerRadius(mouthRadius + mouthWidth)
-  .startAngle(Math.PI / 2)
-  .endAngle(Math.PI * 3 / 2)
-
-const mouthArc2 = arc()
-  .innerRadius(mouthRadius - mouthWidth - 10)
-  .outerRadius(mouthRadius)
-  .startAngle(Math.PI / 2)
-  .endAngle(Math.PI * 3 / 2)
 
 export default function App() {
   const [wink, setWink] = useState(false)
@@ -35,9 +21,7 @@ export default function App() {
         <g transform={`translate(${centerX}, ${centerY})`}>
           <BackgroundCircle radius={centerY - strokeWidth / 2} strokeWidth={strokeWidth} />
           <Eyes eyeOffsetY={eyeOffsetY} eyeOffsetX={eyeOffsetX} eyeRadius={eyeRadius} wink={wink} />
-          {wink && <ellipse cy={165} rx={50} ry={60} fill="red" />}
-          <path d={mouthArc()} />
-          <path d={mouthArc2()} fill="yellow" />
+          <Mouth wink={wink} />
         </g>
       </svg>
     </>
