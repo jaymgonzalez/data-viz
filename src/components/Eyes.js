@@ -12,9 +12,9 @@ export default function Eyes({ wink, eyeOffsetX, eyeOffsetY, eyeRadius }) {
         r={eyeRadius}
       />}
       {wink && <rect
-        width={100}
-        height={20}
-        x={eyeOffsetX - 50}
+        width={30}
+        height={10}
+        x={eyeOffsetX - 10}
         y={-eyeOffsetY}
       />}
     </>

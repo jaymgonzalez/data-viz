@@ -15,7 +15,7 @@ export default function Mouth({ wink, mouthWidth, mouthRadius }) {
 
   return (
     <>
-      {wink && <ellipse cy={165} rx={50} ry={60} fill="red" />}
+      {wink && <ellipse cy={50} rx={15} ry={10} fill="red" />}
       <path d={mouthArc()} />
       <path d={mouthArc2()} fill="yellow" />
     </>
