@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useCallback } from "react"
 
 const width = 960
 const height = 500
@@ -13,14 +13,13 @@ export default function App() {
 
   const [mousePosition, setMousePosition] = useState(initialMousePosition)
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = useCallback(e => {
     const { clientX, clientY } = e
     setMousePosition({
       x: clientX,
       y: clientY
     })
-  }
-
+  }, [setMousePosition])
   return (
     <svg height={height} width={width} onMouseMove={handleMouseMove}>
       <circle
