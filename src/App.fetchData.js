@@ -1,13 +1,23 @@
-import { csvFormat } from 'd3-dsv'
 import { csv } from 'd3-fetch'
+import { useState, useEffect } from 'react'
+
+const csvUrl = 'https://gist.githubusercontent.com/liteljaime/cd88c9646ee675de320252eacbbfc55e/raw/sardinianCovidData.csv'
 
 export default function App() {
-  const csvUrl = 'https://gist.githubusercontent.com/liteljaime/cd88c9646ee675de320252eacbbfc55e/raw/sardinianCovidData.csv'
-  csv(csvUrl).then(data =>
-    console.log(`${Math.round(csvFormat(data).length / 1024)} kB`)
-  )
+
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    csv(csvUrl).then(setData)
+  }, [])
+
+  console.log(data[120])
 
   return (
-    <div>New App</div>
+    <div>
+      <h1>Deceduti</h1>
+      {data.map(day => {
+        return <p key={day.data}>{day.deceduti}</p>
+      })}</div>
   )
 }
