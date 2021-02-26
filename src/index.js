@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './vegaLite/App.vega'
+import App from './App.CSSColors'
 
 ReactDOM.render(
   <App />,
